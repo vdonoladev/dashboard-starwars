@@ -6,7 +6,7 @@ const navesContador = document.getElementById('naves');
 preencherContadores();
 preencherTabela();
 
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(desenharGrafico);
 
 async function desenharGrafico() {
@@ -33,12 +33,12 @@ async function desenharGrafico() {
 
 function preencherContadores() {
   Promise.all([swapiGet('people/'), swapiGet('vehicles/'), swapiGet('planets/'), swapiGet('starships/')])
-  .then(function (results) {
-    personagensContador.innerHTML = results[0].data.count;
-    luasContador.innerHTML = results[1].data.count;
-    planetasContador.innerHTML = results[2].data.count;
-    navesContador.innerHTML = results[3].data.count;
-  });
+    .then(function (results) {
+      personagensContador.innerHTML = results[0].data.count;
+      luasContador.innerHTML = results[1].data.count;
+      planetasContador.innerHTML = results[2].data.count;
+      navesContador.innerHTML = results[3].data.count;
+    });
 }
 
 async function preencherTabela() {
@@ -56,6 +56,6 @@ async function preencherTabela() {
 }
 
 function swapiGet(param) {
-  return axios.get(`https://swapi.dev/api/${param}`);  
+  return axios.get(`https://swapi.dev/api/${param}`);
 }
 
